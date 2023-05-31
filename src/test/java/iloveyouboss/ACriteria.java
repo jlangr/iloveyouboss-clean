@@ -2,11 +2,10 @@ package iloveyouboss;
 
 import iloveyouboss.questions.yesno.YesNoQuestion;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
 
-import static iloveyouboss.questions.yesno.YesNoAnswers.No;
-import static iloveyouboss.questions.yesno.YesNoAnswers.Yes;
+import static iloveyouboss.questions.yesno.YesNoQuestion.No;
+import static iloveyouboss.questions.yesno.YesNoQuestion.Yes;
 import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

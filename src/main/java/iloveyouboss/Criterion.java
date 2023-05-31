@@ -1,18 +1,17 @@
 package iloveyouboss;
 
 import iloveyouboss.questions.Question;
+import static iloveyouboss.questions.Question.AnswerNotProvided;
 
-import static iloveyouboss.Answer.NotProvided;
-
-public record Criterion(Question question, Answer expectedAnswer, boolean isOptional) {
-   public Criterion(Question question, Answer expectedAnswer) {
+public record Criterion(Question question, String expectedAnswer, boolean isOptional) {
+   public Criterion(Question question, String expectedAnswer) {
       this(question, expectedAnswer, false);
    }
 
-   public boolean isMetBy(Answer answer) {
-      if (answer == NotProvided) return false;
-      if (!question.options().contains(answer.value()))
+   public boolean isMetBy(String answer) {
+      if (answer.equals(AnswerNotProvided)) return false;
+      if (!question.options().contains(answer))
          throw new InvalidAnswerException();
-      return expectedAnswer().value().equals(answer.value());
+      return expectedAnswer.equals(answer);
    }
 }

@@ -3,8 +3,10 @@ package iloveyouboss;
 import iloveyouboss.questions.yesno.YesNoQuestion;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import static iloveyouboss.questions.yesno.YesNoAnswers.No;
-import static iloveyouboss.questions.yesno.YesNoAnswers.Yes;
+
+import static iloveyouboss.questions.Question.AnswerNotProvided;
+import static iloveyouboss.questions.yesno.YesNoQuestion.No;
+import static iloveyouboss.questions.yesno.YesNoQuestion.Yes;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AProfile {
@@ -68,7 +70,7 @@ class AProfile {
    class WhenManagingAnswers {
       @Test
       void returnsNullWhenAskedForNonexistentAnswer() {
-         assertSame(Answer.NotProvided, profile.answerFor(mustHave401K));
+         assertSame(AnswerNotProvided, profile.answerFor(mustHave401K));
       }
 
       @Test
