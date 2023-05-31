@@ -25,8 +25,8 @@ In Inspections: Java -> Naming Conventions -> Class -> Class naming convention:
         (A|An)[A-Za-z\d]*
     (to represent names include: "AnApple" or "APeach")
 
-    ...resulting in:
-        (A|An)[A-Za-z\d]*|[A-Z][A-Za-z\d]*Test(s|Case)?|Test[A-Z][A-Za-z\d]*|IT(.*)|(.*)IT(Case)?
+    Resulting in:
+        ```(A|An)[A-Za-z\d]*|[A-Z][A-Za-z\d]*Test(s|Case)?|Test[A-Z][A-Za-z\d]*|IT(.*)|(.*)IT(Case)?```
 
 
-(A|An)[A-Za-z\d]*Test(s|Case)?|Test[A-Z][A-Za-z\d]*|IT(.*)|(.*)IT(Case)?
+Under Project Structure -> Project Settings -> Project -> SDK, ensure JDK 20.0 is selected.
