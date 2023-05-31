@@ -8,7 +8,7 @@ import java.util.Map;
 import static iloveyouboss.Answer.NotProvided;
 
 public class Profile {
-   Map<Integer, Answer<?>> answers = new HashMap<>();
+   Map<Integer, Answer> answers = new HashMap<>();
 
    public boolean matches(Criteria criteria) {
       return criteria.stream()
@@ -16,13 +16,13 @@ public class Profile {
          .allMatch(criterion -> criterion.isMetBy(answerFor(criterion)));
    }
 
-   public <T> void answer(Question<T> question, Answer<T> answer) {
+   public void answer(Question question, Answer answer) {
       if (answers.containsKey(question.id()))
          throw new DuplicateQuestionException();
       answers.put(question.id(), answer);
    }
 
-   public <T> Answer<?> answerFor(Criterion<T> criterion) {
+   public Answer answerFor(Criterion criterion) {
       return answers.getOrDefault(criterion.question().id(), NotProvided);
    }
 }

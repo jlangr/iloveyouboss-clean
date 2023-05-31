@@ -2,7 +2,7 @@ package iloveyouboss.questions;
 
 import java.util.List;
 
-public interface Question<T> {
+public interface Question {
    int id();
-   List<T> options();
+   List<String> options();
 }

@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import java.util.Collections;
 import java.util.List;
 
-import static iloveyouboss.questions.yesno.YesNoAnswers.NoAnswer;
-import static iloveyouboss.questions.yesno.YesNoAnswers.YesAnswer;
+import static iloveyouboss.questions.yesno.YesNoAnswers.No;
+import static iloveyouboss.questions.yesno.YesNoAnswers.Yes;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ACriterion {
@@ -19,16 +19,16 @@ class ACriterion {
 
       @Test
       void isMetByAnswerMatchingItsExpectedAnswer() {
-         var criterion = new Criterion<>(question, YesAnswer);
+         var criterion = new Criterion(question, Yes);
 
-         assertTrue(criterion.isMetBy(YesAnswer));
+         assertTrue(criterion.isMetBy(Yes));
       }
 
       @Test
       void isNotMetByAnswerMismatchingItsExpectedAnswer() {
-         var criterion = new Criterion<>(question, YesAnswer);
+         var criterion = new Criterion(question, Yes);
 
-         assertFalse(criterion.isMetBy(NoAnswer));
+         assertFalse(criterion.isMetBy(No));
       }
    }
 
@@ -38,24 +38,24 @@ class ACriterion {
 
       @Test
       void isMetByAnswerMatchingItsExpectedAnswer() {
-         var criterion = new Criterion<>(question, () -> "eeny");
+         var criterion = new Criterion(question, () -> "eeny");
 
          assertTrue(criterion.isMetBy(() -> "eeny"));
       }
 
       @Test
       void isNotMetByAnswerMismatchingItsExpectedAnswer() {
-         var criterion = new Criterion<>(question, () -> "meeny");
+         var criterion = new Criterion(question, () -> "meeny");
 
          assertFalse(criterion.isMetBy(() -> "moe"));
       }
 
       @Test
       void throwsWhenAnswerDoesNotMatchAvailableChoices() {
-         var criterion = new Criterion<>(
+         var criterion = new Criterion(
             new ChoiceQuestion(1, "?", Collections.singletonList("correct")),
             () -> "correct");
-         Answer<String> answerOutOfRange = () -> "anything else";
+         Answer answerOutOfRange = () -> "anything else";
 
          assertThrows(InvalidAnswerException.class, () -> criterion.isMetBy(answerOutOfRange));
       }

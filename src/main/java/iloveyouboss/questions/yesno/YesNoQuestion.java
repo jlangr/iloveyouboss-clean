@@ -6,9 +6,9 @@ import java.util.List;
 
 import static java.util.Arrays.asList;
 
-public record YesNoQuestion(int id, String text) implements Question<YesNo> {
+public record YesNoQuestion(int id, String text) implements Question {
    @Override
-   public List<YesNo> options() {
-      return asList(YesNo.values());
+   public List<String> options() {
+      return asList("Yes", "No");
    }
 }
