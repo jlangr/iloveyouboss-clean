@@ -19,14 +19,12 @@ Currently the Gradle Settings on the project have changed to use Java 17 in orde
 
 ## IDE stuff
 
-In Inspections: Java -> Naming Conventions -> Class -> Class naming convention:
-    Under options, ensure "Test class" is checked.
-    In the Pattern field, prefix the existing pattern with:
-        (A|An)[A-Za-z\d]*
-    (to represent names include: "AnApple" or "APeach")
-
-    Resulting in:
-        ```(A|An)[A-Za-z\d]*|[A-Z][A-Za-z\d]*Test(s|Case)?|Test[A-Z][A-Za-z\d]*|IT(.*)|(.*)IT(Case)?```
+In **Settings**, open **Inspections**. Navigate to **Java -> Naming Conventions -> Class -> Class naming convention**.
+* Under **Options**, ensure **Test class** is checked.
+* In the **Pattern** field, prefix the existing pattern with ```(A|An)[A-Za-z\d]*```.
+  This allows you to specify test names as "objects;" for example, "AnApple" or "APeach".
+  The Resulting **Pattern** field should be:
+     ```(A|An)[A-Za-z\d]*|[A-Z][A-Za-z\d]*Test(s|Case)?|Test[A-Z][A-Za-z\d]*|IT(.*)|(.*)IT(Case)?```
 
 
-Under Project Structure -> Project Settings -> Project -> SDK, ensure JDK 20.0 is selected.
+Under **Project Structure -> Project Settings -> Project -> SDK**, ensure JDK 20.0 is selected.
